@@ -22,3 +22,5 @@ This is a simple plugin for a minecraft server that allows you to create a disco
   * [DISCORD] /rewardchannel - creating a message on the discord channel where you will be able to receive the rewrd
 
 Spigot version: 1.16.5+ 
+
+Please report any bugs [here](https://github.com/NightFurry98/bDiscordReward/issues) or via Discord messages to: bonappetit_
