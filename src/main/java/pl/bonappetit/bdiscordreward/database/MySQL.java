@@ -54,8 +54,4 @@ public class MySQL
             return null;
         }
     }
-
-    public Connection getConnection() {
-        return MySQL.connection;
-    }
 }
