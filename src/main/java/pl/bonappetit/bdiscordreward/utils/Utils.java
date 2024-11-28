@@ -1,10 +1,16 @@
 package pl.bonappetit.bdiscordreward.utils;
 
 import java.util.regex.*;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.*;
 import java.util.*;
 import net.md_5.bungee.api.*;
+import org.bukkit.inventory.meta.ItemMeta;
+import pl.bonappetit.bdiscordreward.BDiscordReward;
 
 public class Utils
 {
@@ -42,5 +48,28 @@ public class Utils
                 player.getWorld().dropItem(player.getLocation(), leftover);
             }
         }
+    }
+
+    public static void openRewardGUI(Player player) {
+        Configuration config = BDiscordReward.getPlugin().getConfig();
+        Inventory gui = Bukkit.createInventory(null, 54, fixColor(config.getString("gui.name")));
+        for (String item : config.getStringList("reward.items")) {
+            ItemStack itemStack = ParseItemStack.parseItem(item);
+            gui.addItem(itemStack);
+        }
+        player.openInventory(gui);
+    }
+
+    public static void openRewardGUICommand(Player player) {
+        Configuration config = BDiscordReward.getPlugin().getConfig();
+        Inventory gui = Bukkit.createInventory(null, 54, fixColor(config.getString("gui.name")));
+        for (String command : config.getStringList("reward.commands")) {
+            ItemStack itemStack = new ItemStack(Material.PAPER);
+            ItemMeta itemMeta = itemStack.getItemMeta();
+            itemMeta.setDisplayName(fixColor("&b") + command);
+            itemStack.setItemMeta(itemMeta);
+            gui.addItem(itemStack);
+        }
+        player.openInventory(gui);
     }
 }

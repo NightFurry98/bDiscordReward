@@ -5,6 +5,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.bonappetit.bdiscordreward.command.BDiscordRewardCommand;
 import pl.bonappetit.bdiscordreward.database.MySQL;
+import pl.bonappetit.bdiscordreward.listeners.spigot.PlayerInventoryClickListener;
 import pl.bonappetit.bdiscordreward.listeners.spigot.PlayerJoinListener;
 import pl.bonappetit.bdiscordreward.managers.UserManager;
 
@@ -28,6 +29,7 @@ public final class BDiscordReward extends JavaPlugin {
                 + ");");
         UserManager.loadUsers();
         pm.registerEvents(new PlayerJoinListener(), this);
+        pm.registerEvents(new PlayerInventoryClickListener(), this);
         this.getCommand("bdsicordreward").setExecutor(new BDiscordRewardCommand());
     }
 
