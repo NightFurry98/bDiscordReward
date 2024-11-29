@@ -1,9 +1,0 @@
-name: bDiscordReward
-version: '${project.version}'
-main: pl.bonappetit.bdiscordreward.BDiscordReward
-api-version: '1.16'
-author: bonappetit
-
-commands:
-  bdsicordreward:
-    aliases: [bdr,breward]
