@@ -45,7 +45,7 @@ Dependency:
 ## Available Methods
  *  RewardAPI.canReceiveReward(String nick)
 ```java
- boolean canReceive = RewardAPI.canReceiveReward("Player123");
+boolean canReceive = RewardAPI.canReceiveReward("Player123");
  ```
  *  RewardAPI.getRewardCount(String nick)
 ```java
