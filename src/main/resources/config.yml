@@ -107,11 +107,17 @@ command:
     # Message displayed when the player does not have the required permission to execute a command.
     no_perm: "&cYou do not have permission for this command!"
     # Message displayed when no arguments are provided to the base command.
-    usage_base: "&7Usage: /reward [item | reload]"
+    usage_base: "&7Usage: /reward [item | command | reload]"
     # Message displayed when the 'item' subcommand is used without additional arguments.
-    usage_item: "&7Usage: /reward item [add]"
+    usage_item: "&7Usage: /reward item [add/remove]"
     # Message displayed when an item is successfully added to the reward list.
     item_added: "&aItem successfully added to the reward list."
+    # Message displayed when an item is successfully removed to the reward list.
+    item_removed: "&aItem successfully removed to the reward list."
+    # Message displayed when an command is successfully added to the reward list.
+    command_added: "&aCommand successfully added to the reward list."
+    # Message displayed when an command is successfully removed to the reward list.
+    command_removed: "&aCommand successfully removed to the reward list."
     # Message displayed when the player tries to add an item but is not holding anything in their main hand.
     no_item_in_hand: "&cYou must hold an item in your hand to add it!"
     # Message displayed when the configuration is successfully reloaded.
