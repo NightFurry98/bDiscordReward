@@ -45,6 +45,13 @@ public class ModalListener extends ListenerAdapter {
             user.setNextRewardTime(config.getString("cooldown_claiming"));
             user.save();
             Utils.sendMessage(player, successMessageSpigot);
+            if (config.getBoolean("reward.send_message")) {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    for (String message : config.getStringList("reward.message")) {
+                        Utils.sendMessage(p, message);
+                    }
+                }
+            }
             event.reply(successMessageDiscord).setEphemeral(true).queue();
         } else {
             String failureMessage;

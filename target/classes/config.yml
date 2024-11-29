@@ -1,0 +1,120 @@
+# Enter the data into your MYSQL database here
+database:
+  hostname:
+  port:
+  name:
+  user:
+  password:
+
+#####################
+# Discord bot setup #
+#####################
+
+# Enter your discord bot token
+discord_bot_token: ""
+
+# Set your bot's activity status
+# In the type section, enter: playing,streaming,listening,watching,competing,custom
+# In the message section, enter: the content displayed in the status
+activity:
+  type: "custom"
+  message: "activity text"
+  link: "https://github.com/NightFurry98"
+
+# Here, edit the message in EmbedBuilder that will be sent to the rewards channel
+embed:
+  title: "Discord reward"
+  description: "Click the button below to claim your reward."
+  color: "#00FF00"
+  footer: "BDiscordReward"
+  thumbnail_url: ""
+  fields:
+    - name: "Reward"
+      value: "1x Diamond sword"
+      inline: true
+
+# Enter a name for the button responsible for claiming the reward
+button_name: "REWARD"
+
+# Here, edit the menu that will appear after clicking the button
+modal:
+  title: "Reward"
+  label: "Enter your nickname"
+  placeholder: "Example (bonappetit)"
+
+######################
+# Reward claim setup #
+######################
+
+# Enter true if the prize can be claimed by one player multiple times, false if a player can claim the prize once
+receiving_more_times: false
+
+# Enter the time after which the player can collect the reward again
+# Format in which to enter the time: '1d or 24h'
+# y - year, m - month, d - day, h - hour, min - minte, s - second
+cooldown_claiming: "1d"
+
+# Here, configure your reward that the player should receive
+# @player - Nickname of the player who received the prize
+# @time - Time to next reward
+reward:
+  messages:
+    spigot:
+      # Message when the player successfully claims the reward
+      success: "&aYou have successfully claimed your reward!"
+    discord:
+      # Message when the player successfully claims the reward
+      success: "You have successfully claimed your reward!"
+      # Message when the player tries to claim the reward again
+      fault: "You made a mistake, you have already received this reward!"
+      # Message when the player needs to wait for the next reward
+      wait: "You need to wait @time before claiming your next reward!"
+      # Message when the player is offline
+      offline: "Player @player is offline"
+  # execute commands after receiving the reward
+  # Set to 'false' if you don't want to execute commands
+  execute_commands: true
+  # List of commands to execute
+  commands:
+    - "give @player minecraft:diamond 1" # Example command
+  # Whether the player should receive items
+  # Set to 'false' if you don't want the player to receive items
+  give_items: true
+  # List of items to give to the player
+  #  Each parameter is written in the format key=value and separated by spaces.
+  #  Available keys:
+  #  type – material name, e.g., DIAMOND_SWORD.
+  #  amount – number of items (default: 1).
+  #  name – custom item name (use _ instead of spaces, e.g., Hero_Sword).
+  #  lore – item description, with %nl% separating lines (e.g., First_line%nl%Second_line).
+  #  customd – custom model data (CustomModelData).
+  #  color – RGB hex color (e.g., #FF5733) – only for leather items.
+  #  Keys matching enchantments (e.g., DAMAGE_ALL=5).
+  items:
+    - "type=DIAMOND_SWORD amount=1 DAMAGE_ALL=5 FIRE_ASPECT=2"  # Example item
+    - "type=ENCHANTED_GOLDEN_APPLE amount=8"
+  send_message: true # Send a message when a player receives a reward
+  message: # The message that will be displayed in the chat when the player collects the reward
+    - " "
+    - " &dPlayer &5@player &dreceived the award, visit our discord: &5discord.invite.xxx"
+    - " "
+
+gui: # Gui name 
+  name: "&cClick to remove"
+
+command:
+  messages:
+    # Message displayed when the player does not have the required permission to execute a command.
+    no_perm: "&cYou do not have permission for this command!"
+    # Message displayed when no arguments are provided to the base command.
+    usage_base: "&7Usage: /reward [item | reload]"
+    # Message displayed when the 'item' subcommand is used without additional arguments.
+    usage_item: "&7Usage: /reward item [add]"
+    # Message displayed when an item is successfully added to the reward list.
+    item_added: "&aItem successfully added to the reward list."
+    # Message displayed when the player tries to add an item but is not holding anything in their main hand.
+    no_item_in_hand: "&cYou must hold an item in your hand to add it!"
+    # Message displayed when the configuration is successfully reloaded.
+    config_reloaded: "&aConfiguration successfully reloaded."
+  # The permission required to execute commands related to this plugin.
+  permission: "reward.command.manage"

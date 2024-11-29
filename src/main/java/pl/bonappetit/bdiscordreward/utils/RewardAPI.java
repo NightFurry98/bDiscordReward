@@ -48,6 +48,4 @@ public class RewardAPI {
         }
         return user.getNextRewardTime();
     }
-
-
 }

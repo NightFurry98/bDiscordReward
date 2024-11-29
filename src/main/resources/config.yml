@@ -93,6 +93,14 @@ reward:
   items:
     - "type=DIAMOND_SWORD amount=1 DAMAGE_ALL=5 FIRE_ASPECT=2"  # Example item
     - "type=ENCHANTED_GOLDEN_APPLE amount=8"
+  send_message: true # Send a message when a player receives a reward
+  message: # The message that will be displayed in the chat when the player collects the reward
+    - " "
+    - " &dPlayer &5@player &dreceived the award, visit our discord: &5discord.invite.xxx"
+    - " "
+
+gui: # Gui name 
+  name: "&cClick to remove"
 
 command:
   messages:
